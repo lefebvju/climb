@@ -1,0 +1,52 @@
+{
+    "common_params":
+    {
+        "gpu-idx": 0,
+        "dataset": "cifar100",
+        "num-exps": 20,
+        "save-folder": "./logs",
+
+        "model": "simclr",
+        "encoder": "resnet18",
+        "strategy": "climb",
+
+        "lr": 0.3,
+        "optim": "sgd",
+        "optim-momentum": 0.9,
+        "weight-decay": 1e-4,
+
+        "tr-mb-size": 10,
+        "repl-mb-size": 128,
+        "mb-passes": 3,
+        "epochs": 1,
+
+        "mem-size": 2500,
+        "stm-size": 100,
+        "ltm-max": 60,
+        "max-examples-per-centroid": 30,
+        "window-size": 1000,
+        "novelty-percentile": 0.95,
+        "alpha-stm": 0.1,
+
+        "tau-ema": 0.999,
+        "omega": 2.0,
+
+        "ltm-replace-mode": "random",
+        "ratio-ltm": 0.5,
+
+        "eval-mb-size": 256,
+        "probing-all-exp": true,
+        "probing-rr": false,
+        "probing-torch": true,
+        "probing-knn": false,
+        "probing-joint": true,
+        "probing-separate": false,
+        "save-model-every-exp": false
+    },
+    "experiments":
+    [
+        {
+            "iid": false
+        }
+    ]
+}

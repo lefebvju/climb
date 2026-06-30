@@ -1,0 +1,25 @@
+{
+    "common_params":
+    {
+        "gpu-idx": 0,
+        "dataset-root": "path/to/imagenet100",
+        "eval-mb-size": 256,
+        "probing-all-exp": true,
+        "probing-rr": false,
+        "probing-torch": true,
+        "probing-knn": false,
+        "probing-joint": true,
+        "probing-separate": false,
+        "save-model-every-exp": false
+
+
+    },
+    "experiments":
+    [
+        {
+            "iid": false,
+            "strategy" : "cla_r",
+            "buffer-type": "fifo"
+        }
+    ]
+}
