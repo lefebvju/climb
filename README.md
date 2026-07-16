@@ -36,8 +36,8 @@ For each stream mini-batch $b_s$, a replay batch $b_r$ is sampled in equal parts
 
 $$\mathcal{L} = \mathcal{L}_{\text{SSL}} + \lambda \, \mathcal{L}_{\text{align}}$$
 
-- $\mathcal{L}_{\text{SSL}}$: SimCLR contrastive loss on the full batch $b$.
-- $\mathcal{L}_{\text{align}}$: negative cosine similarity between $a_\phi(z_r)$ and $z^{\text{ema}}_r$, where $z_r = g_\theta(f_\theta(b_r^t))$ are the replayed representations, $a_\phi$ is a dedicated projection head, and $z^{\text{ema}}_r = g_{\theta'}(f_{\theta'}(b_r^t))$ are the representations from the EMA encoder $(f_{\theta'}, g_{\theta'})$.
+- $\mathcal{L}_{\text{SSL}}$ : SimCLR contrastive loss on the full batch $b$ .
+- $\mathcal{L}\_{\text{align}}$ : negative cosine similarity between $a\_\phi(z_r)$ and $z^{\text{ema}}\_r$ , where $z\_r = g\_\theta(f\_\theta(b\_r^t))$ are the replayed representations, $a\_\phi$ is a dedicated projection head, and $z^{\text{ema}}\_r = g\_{\theta'}(f\_{\theta'}(b\_r^t))$ are the representations from the EMA encoder $(f\_{\theta'}, g\_{\theta'})$ .
 
 The EMA encoder is updated with momentum $\tau_{\text{ema}}$ after each mini-batch.
 
@@ -55,17 +55,6 @@ CLIMB consistently outperforms state-of-the-art OCSSL methods on Split CIFAR-100
 | Osiris-R | 37.06 ± 1.80 | 42.72 ± 2.00 | 35.64 ± 1.80 | 39.02 ± 0.93 | 35.04 ± 1.71 | 39.44 ± 1.47 |
 | MinRed | 35.87 ± 1.99 | 43.34 ± 1.71 | 34.83 ± 2.29 | 42.70 ± 1.11 | 35.07 ± 1.90 | 41.74 ± 0.83 |
 | SCALE | 28.70 ± 1.45 | 33.43 ± 0.59 | 29.26 ± 3.64 | 31.74 ± 1.86 | 22.87 ± 3.09 | 28.08 ± 1.86 |
-
-**Regular task distribution — Split CIFAR-100:**
-
-| Method | CA (20 tasks) | FA (20 tasks) | CA (50 tasks) | FA (50 tasks) | CA (100 tasks) | FA (100 tasks) |
-|---|---|---|---|---|---|---|
-| **CLIMB** | **41.33 ± 0.72** | **44.09 ± 0.30** | **38.68 ± 1.04** | **43.15 ± 0.58** | **38.60 ± 1.22** | **43.37 ± 0.84** |
-| CLA-E | 37.59 ± 1.14 | 40.95 ± 0.98 | 36.60 ± 1.38 | 40.65 ± 1.25 | 36.70 ± 1.31 | 41.23 ± 1.27 |
-| CLA-R | 39.87 ± 0.88 | 42.89 ± 1.72 | 38.68 ± 1.26 | 41.67 ± 1.85 | 38.84 ± 1.05 | 42.28 ± 2.26 |
-| MinRed | 39.34 ± 1.14 | 43.89 ± 1.44 | 38.14 ± 1.08 | 43.62 ± 1.44 | 38.30 ± 1.42 | 43.46 ± 1.48 |
-| Osiris-R | 34.13 ± 1.29 | 37.65 ± 0.57 | 31.94 ± 1.08 | 37.19 ± 0.74 | 32.91 ± 1.43 | 35.48 ± 1.51 |
-| SCALE | 27.88 ± 1.30 | 31.32 ± 0.40 | 27.40 ± 0.86 | 31.23 ± 0.50 | 27.25 ± 1.15 | 31.14 ± 0.73 |
 
 Full results including irregular task distributions and SimSiam experiments are reported in the paper.
 
